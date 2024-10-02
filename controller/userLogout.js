@@ -1,11 +1,12 @@
-const userLogoutController = async () => {
+const userLogoutController = async (req, res) => {
   try {
-    res.clearCookies('token');
+    res.clearCookie('token');
 
     res.json({
       message: 'User logged out successfully',
       error: false,
       success: true,
+      data: [],
     });
   } catch (err) {
     res.json({
@@ -15,3 +16,5 @@ const userLogoutController = async () => {
     });
   }
 };
+
+export default userLogoutController;
