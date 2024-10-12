@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
-const addToCart = mongoose.Schema(
+const cartSchema = mongoose.Schema(
   {
     productId: {
-      ref: 'product',
+      ref: 'products',
       type: String,
     },
     quantity: Number,
@@ -14,6 +14,4 @@ const addToCart = mongoose.Schema(
   }
 );
 
-const addToCartModel = mongoose.model('addToCart', addToCart);
-
-export default addToCartModel;
+export default mongoose.model('cart', cartSchema);

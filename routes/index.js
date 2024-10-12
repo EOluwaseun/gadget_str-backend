@@ -11,6 +11,12 @@ import getProductController from '../controller/product/getProduct.js';
 import updateProductController from '../controller/product/updateProduct.js';
 import getCategoryProduct from '../controller/product/getCategoryProduct.js';
 import getCategoriesWiseProduct from '../controller/product/getCategoryWiseProduct.js';
+import getProductDetailsController from '../controller/product/getProductDetails.js';
+import addToCartController from '../controller/user/addToCart.js';
+import countAddToCartProduct from '../controller/user/countAddProduct.js';
+import addToCartView from '../controller/user/addToCartView.js';
+import updateCartQtyController from '../controller/user/updateAddToCart.js';
+import deleteCartProductController from '../controller/user/deleteAddToCart.js';
 
 const router = express.Router();
 
@@ -27,5 +33,15 @@ router.get('/all-product', getProductController);
 router.post('/update-product', authToken, updateProductController);
 router.get('/get-categoryProduct', getCategoryProduct);
 router.post('/category-product', getCategoriesWiseProduct);
+//post method allows information to be pass throgh body
+router.post('/product-details', getProductDetailsController);
+
+// add to cart
+router.post('/addtocart', authToken, addToCartController);
+router.get('/countAddToCart', authToken, countAddToCartProduct);
+router.get('/viewCartProduct', authToken, addToCartView);
+
+router.post('/update-cart-product', authToken, updateCartQtyController);
+router.post('/delete-cart-product', authToken, deleteCartProductController);
 
 export default router;
