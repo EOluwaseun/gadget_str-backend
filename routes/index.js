@@ -17,6 +17,10 @@ import countAddToCartProduct from '../controller/user/countAddProduct.js';
 import addToCartView from '../controller/user/addToCartView.js';
 import updateCartQtyController from '../controller/user/updateAddToCart.js';
 import deleteCartProductController from '../controller/user/deleteAddToCart.js';
+import searchProductController from '../controller/product/searchProduct.js';
+import filterProductController from '../controller/product/fillterProduct.js';
+import paymentController from '../controller/order/paymentController.js';
+// import webhooks from '../controller/order/webhook.js';
 
 const router = express.Router();
 
@@ -35,6 +39,8 @@ router.get('/get-categoryProduct', getCategoryProduct);
 router.post('/category-product', getCategoriesWiseProduct);
 //post method allows information to be pass throgh body
 router.post('/product-details', getProductDetailsController);
+router.get('/search', searchProductController);
+router.post('/filter-product', filterProductController);
 
 // add to cart
 router.post('/addtocart', authToken, addToCartController);
@@ -43,5 +49,8 @@ router.get('/viewCartProduct', authToken, addToCartView);
 
 router.post('/update-cart-product', authToken, updateCartQtyController);
 router.post('/delete-cart-product', authToken, deleteCartProductController);
+
+router.post('/checkout', authToken, paymentController);
+// router.post('/webhook', webhooks);
 
 export default router;
