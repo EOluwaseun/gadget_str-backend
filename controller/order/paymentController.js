@@ -6,7 +6,7 @@ dotenv.config();
 const paymentController = async (request, response) => {
   try {
     const { cartItems } = request.body;
-    console.log(cartItems);
+    // console.log(cartItems);
     const user = await User.findOne({ _id: request.userId });
 
     const params = {
