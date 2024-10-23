@@ -22,6 +22,7 @@ import filterProductController from '../controller/product/fillterProduct.js';
 import paymentController from '../controller/order/paymentController.js';
 import webhooks from '../controller/order/webhook.js';
 import orderController from '../controller/order/orderController.js';
+import allOrderController from '../controller/order/AllOrderController.js';
 
 const router = express.Router();
 
@@ -54,5 +55,6 @@ router.post('/delete-cart-product', authToken, deleteCartProductController);
 router.post('/checkout', authToken, paymentController);
 router.post('/webhook', webhooks);
 router.get('/order-list', authToken, orderController);
+router.get('/all-order', authToken, allOrderController);
 
 export default router;
